@@ -95,12 +95,4 @@
 		rdfs:subClassOf :Location ;
 		skos:definition ""@en .
 
-:FloorType a owl:Class ;
-		rdfs:label "FloorType"@en ;
-		skos:definition ""@en .
-		
-:Address a owl:Class ;
-		rdfs:label "Address"@en ;
-		skos:definition ""@en .
-
 
