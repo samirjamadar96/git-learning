@@ -1,0 +1,106 @@
+@prefix : <https://www.JCIBuildingSchema.org/schema/JEMEntitySH#> .
+
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.JCIBuildingSchema.org/schema/JEMEntitySH#> a owl:Ontology .
+
+##########################################
+	 ## SPACE HIERARCHY CLASSES ##
+##########################################
+ 
+:Organization a owl:Class ;
+		rdfs:label "Organization"@en ;
+		skos:definition ""@en .
+
+:Category a owl:Class ;
+		rdfs:label "Category"@en ;
+		skos:definition ""@en .
+
+
+:Location a owl:Class;
+	rdfs:label "Location"@en ;
+	skos:definition "master class of all nodes in space hierarchy"@en .
+		
+:Continent a owl:Class ;
+		rdfs:label "Continent"@en ;
+		rdfs:subClassOf :Location ;
+		skos:definition ""@en .
+
+:Country a owl:Class ;
+		rdfs:label "Country"@en ;
+		rdfs:subClassOf :Location ;
+		skos:definition ""@en .
+
+:Region a owl:Class ;
+		rdfs:label "Region"@en ;
+		rdfs:subClassOf :Location ;
+		skos:definition ""@en .		
+		
+:State a owl:Class ;
+		rdfs:label "State"@en ;
+		rdfs:subClassOf :Location ;
+		skos:definition ""@en .		
+	
+:State-Region a owl:Class ;
+		rdfs:label "State-Region"@en ;
+		rdfs:subClassOf :Location ;
+		skos:definition ""@en .	
+
+:District a owl:Class ;
+		rdfs:label "District"@en ;
+		rdfs:subClassOf :Location ;
+		skos:definition ""@en .			
+		
+:County a owl:Class ;
+		rdfs:label "County"@en ;
+		rdfs:subClassOf :Location ;
+		skos:definition ""@en .		
+		
+:City a owl:Class ;
+		rdfs:label "City"@en ;
+		rdfs:subClassOf :Location ;
+		skos:definition ""@en .		
+
+:Campus a owl:Class ;
+		rdfs:label "Campus"@en ;
+		rdfs:subClassOf :Location ;
+		skos:definition ""@en .
+
+:Building a owl:Class ;
+		rdfs:label "Building"@en ;
+		rdfs:subClassOf :Location ;
+		skos:definition ""@en .
+		
+:Floor a owl:Class ;
+		rdfs:label "Floor"@en ;
+		rdfs:subClassOf :Location ;
+		skos:definition ""@en .
+
+:Wing a owl:Class ;
+		rdfs:label "Wing"@en ;
+		rdfs:subClassOf :Location ;
+		skos:definition ""@en .
+		
+:Zone a owl:Class ;
+		rdfs:label "Zone"@en ;
+		rdfs:subClassOf :Location ;
+		skos:definition ""@en .
+		
+:Room a owl:Class ;
+		rdfs:label "Room"@en ;
+		rdfs:subClassOf :Location ;
+		skos:definition ""@en .
+
+:FloorType a owl:Class ;
+		rdfs:label "FloorType"@en ;
+		skos:definition ""@en .
+		
+:Address a owl:Class ;
+		rdfs:label "Address"@en ;
+		skos:definition ""@en .
+
+
