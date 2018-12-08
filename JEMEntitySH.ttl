@@ -94,9 +94,3 @@
 		rdfs:label "Room"@en ;
 		rdfs:subClassOf :Location ;
 		skos:definition ""@en .
-
-:Address a owl:Class ;
-		rdfs:label "Address"@en ;
-		skos:definition ""@en .
-
-# this is code mad by test1 branch
