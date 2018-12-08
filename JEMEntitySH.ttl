@@ -95,8 +95,22 @@
 		rdfs:subClassOf :Location ;
 		skos:definition ""@en .
 
+<<<<<<< HEAD
+||||||| cbf7107... test1 updated data
+	
+=======
+
+#floortype removed	 
+		
+>>>>>>> parent of cbf7107... test1 updated data
 :Address a owl:Class ;
 		rdfs:label "Address"@en ;
 		skos:definition ""@en .
+<<<<<<< HEAD
 
 # this is code mad by test1 branch
+||||||| cbf7107... test1 updated data
+
+# this is code mad by test1 branch
+=======
+>>>>>>> parent of cbf7107... test1 updated data
