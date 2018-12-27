@@ -1,4 +1,4 @@
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
+    @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
@@ -32,10 +32,10 @@
         
     # Relations
         :hasEquipmentCategory a owl:ObjectProperty ;
-            rdfs:domain :EquipmentType ;rdfs:domain :Equipment ;
+            rdfs:domain :EquipmentType ; 
             rdfs:range :EquipmentCategory .
         
-###############################  Equipment  ###############################
+###############################  Equipment  ##############################
     # Classes
         :Equipment a owl:Class ;
             rdfs:label "Equipment"@en ;
@@ -44,14 +44,124 @@
         :FaultDetectionEnabled a owl:DatatypeProperty ;
             rdfs:domain :Equipment ;
             rdfs:range xsd:boolean .
+
+        :MaxPower a owl:DatatypeProperty ;
+            rdfs:domain :Equipment ;
+            rdfs:range xsd:int .
+
+        :PPTNativeReference a owl:DatatypeProperty ;
+            rdfs:domain :Equipment ;
+            rdfs:range xsd:string .
+
+        :PPTEquipmentType a owl:DatatypeProperty ;
+            rdfs:domain :Equipment ;
+            rdfs:range xsd:string .
+
     # Relations
         :hasEquipmentType a owl:ObjectProperty ;
             rdfs:domain :Equipment ;
             rdfs:range :EquipmentType .
 
+        :hasEquipmentCategory a owl:ObjectProperty ;
+            rdfs:domain :Equipment ;
+            rdfs:range :EquipmentCategory .
+
         :residedInBuilding a owl:ObjectProperty ;
             rdfs:domain :Equipment ;
             rdfs:range :Building .
 
+###############################  Equipment Template  ###############################
+    # Classes
+        :EquipmentTemplate a owl:Class ;
+            rdfs:label "EquipmentTemplate"@en ;
+            skos:definition ""@en .
+    # Properties
+        :UnitType a owl:DatatypeProperty ;
+            rdfs:domain :EquipmentTemplate ;
+            rdfs:range xsd:string .
+
+        :ShortName a owl:DatatypeProperty ;
+            rdfs:domain owl:Class ;
+            rdfs:range xsd:string .           
+    # Relations  
+        :hasEquipmentType a owl:ObjectProperty ;
+            rdfs:domain :EquipmentTemplate ;
+            rdfs:range :EquipmentType .
+        
+        :FilterBy a owl:DatatypeProperty ;
+            rdfs:domain :hasEquipmentType ;
+            rdfs:range xsd:string .
+
+        :hasEquipmentCategory a owl:ObjectProperty ;
+            rdfs:domain :EquipmentTemplate ; 
+            rdfs:range :EquipmentCategory .
+
+###############################  EquipmentTypeTemplateMapping  ###############################
+    # Classes
+        # Mapping table. Hence excluded.
+    # Properties
+        # no properties
+    # Relations
+        # Already added in EquipmentTemplate
+
+###############################  EquipmentTemplatePointMapping  ###############################
+    # Classes
+        # Mapping table. Hence excluded.
+    # Properties
+        # no properties
+    # Relations
+        :hasPoint a owl:ObjectProperty ;
+            rdfs:domain :EquipmentTemplate ; 
+            rdfs:range :Point . #need to be declared
+
+        :hasDataSource a owl:ObjectProperty ;
+            rdfs:domain :EquipmentTemplate ; 
+            rdfs:range :DataSource . #need to be declared 
+
+        :hasEquipment a owl:ObjectProperty ;
+            rdfs:domain :EquipmentTemplate ;
+            rdfs:range :Equipment .
+
+###############################  EquipmentPlantRoomTemplateMapping  ###############################
+    # Classes
+        # Mapping table. Hence excluded.
+    # Properties
+        # no properties
+    # Relations
+        :hasPlantRoomTemplate a owl:ObjectProperty ;
+            rdfs:domain :EquipmentTemplate ; 
+            rdfs:range :PlantRoomTemplate . #need to be declared
+
+###############################  EquipmentFaultTimeMachineDetails  ###############################
+    # Classes
+        :EquipmentFaultTimeMachineDetails a owl:Class ;
+            rdfs:label "EquipmentFaultTimeMachineDetails"@en ;
+            skos:definition ""@en .
+    # Properties
+        :IsProcessed a owl:DatatypeProperty ;
+            rdfs:domain :EquipmentFaultTimeMachineDetails ;
+            rdfs:range xsd:boolean .
+        
+        :RowKey a owl:DatatypeProperty ;
+            rdfs:domain :EquipmentFaultTimeMachineDetails ;
+            rdfs:range xsd:string .
+        
+        :FromDate a owl:DatatypeProperty ;
+            rdfs:domain :EquipmentFaultTimeMachineDetails ;
+            rdfs:range xsd:dateTime .
+        
+        :EndDate a owl:DatatypeProperty ;
+            rdfs:domain :EquipmentFaultTimeMachineDetails ;
+            rdfs:range xsd:dateTime .
+
+    # Relations
+        :hasEquipment a owl:ObjectProperty ;
+            rdfs:domain :EquipmentFaultTimeMachineDetails ; 
+            rdfs:range :Equipment .
+
+        :hasRule a owl:ObjectProperty ;
+            rdfs:domain :EquipmentFaultTimeMachineDetails ; 
+            rdfs:range :Rule . #need to be declared
 
 ####################################################################################
+
