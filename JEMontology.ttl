@@ -1,0 +1,57 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix : <https://www.JCIBuildingSchema.org/schema/JEMEntity#> .
+
+<https://www.JCIBuildingSchema.org/schema/JEMEntity#> a owl:Ontology .
+
+
+###############################  Equipment Category  ###############################
+    # Classes
+        :EquipmentCategory a owl:Class ;
+            rdfs:label "EquipmentCategory"@en ;
+            skos:definition ""@en .
+
+    # Properties
+        :ShortName a owl:DatatypeProperty ;
+            rdfs:domain owl:Class ;
+            rdfs:range xsd:string .
+
+    # Relations
+
+###############################  Equipment Type  ###############################
+    # Classes
+        :EquipmentType a owl:Class ;
+            rdfs:label "EquipmentType"@en ;
+            skos:definition ""@en .
+
+    # Properties
+        
+    # Relations
+        :hasEquipmentCategory a owl:ObjectProperty ;
+            rdfs:domain :EquipmentType ;rdfs:domain :Equipment ;
+            rdfs:range :EquipmentCategory .
+        
+###############################  Equipment  ###############################
+    # Classes
+        :Equipment a owl:Class ;
+            rdfs:label "Equipment"@en ;
+            skos:definition ""@en .
+    # Properties
+        :FaultDetectionEnabled a owl:DatatypeProperty ;
+            rdfs:domain :Equipment ;
+            rdfs:range xsd:boolean .
+    # Relations
+        :hasEquipmentType a owl:ObjectProperty ;
+            rdfs:domain :Equipment ;
+            rdfs:range :EquipmentType .
+
+        :residedInBuilding a owl:ObjectProperty ;
+            rdfs:domain :Equipment ;
+            rdfs:range :Building .
+
+
+####################################################################################
