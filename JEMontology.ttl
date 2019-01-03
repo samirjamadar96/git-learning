@@ -337,5 +337,371 @@
     # Relation
         #
            
+
+
+###############################  EnergyImpact  ###############################
+    # Class
+        :EnergyImpact a owl:Class ;
+            rdfs:label "EnergyImpact"@en ;
+            skos:definition ""@en .
+    # Property
+        
+        :FuelConsumptionUnitPrice a owl:DatatypeProperty ;
+            rdfs:domain :EnergyImpact ;
+            rdfs:range xsd:double .
+
+        :ElectricalConsumptionUnitPrice a owl:DatatypeProperty ;
+            rdfs:domain :EnergyImpact ;
+            rdfs:range xsd:double .
+        
+        :CreatedBy a owl:DatatypeProperty ;
+            rdfs:domain :EnergyImpact ;
+            rdfs:range xsd:string .
+
+        :UpdatedBy a owl:DatatypeProperty ;
+            rdfs:domain :EnergyImpact ;
+            rdfs:range xsd:string .
+
+        :IsActive a owl:DatatypeProperty ;
+            rdfs:domain :EnergyImpact ;
+            rdfs:range xsd:boolean .
+
+        :CreatedDate a owl:DatatypeProperty ;
+            rdfs:domain :EnergyImpact ;
+            rdfs:range xsd:dateTime .
+
+        :UpdatedDate a owl:DatatypeProperty ;
+            rdfs:domain :EnergyImpact ;
+            rdfs:range xsd:dateTime .
+
+    # Relation
+        :hasOrganization a owl:ObjectProperty ; 
+            rdfs:domain :EnergyImpact ;
+            rdfs:range :Organization . # need to be declared
+
+        :hasEquipment a owl:ObjectProperty ; 
+            rdfs:domain :EnergyImpact ;
+            rdfs:range :Equipment .
+
+        :BuildingID a owl:ObjectProperty ; 
+            rdfs:domain :EnergyImpact ;
+            rdfs:range :Building . # need to be declared
+
+        :hasRule a owl:ObjectProperty ; # need to be checked
+            rdfs:domain :EnergyImpact ;
+            rdfs:range xsd:anyURI . # need to be declared
+
+        :hasUnit a owl:ObjectProperty ; 
+            rdfs:domain :EnergyImpact ;
+            rdfs:range :Units . # need to be declared
+
+        :hasEnergyImpactType a owl:ObjectProperty ; 
+            rdfs:domain :EnergyImpact ;
+            rdfs:range :MstEnergyImpactType . # need to be declared
+            
+###############################  EnergyImpactMonthlyConsumption  ###############################
+    # Class
+        :EnergyImpactMonthlyConsumption a owl:Class ;
+            rdfs:label "EnergyImpactMonthlyConsumption"@en ;
+            skos:definition ""@en .
+    # Property
+        
+        :Year a owl:DatatypeProperty ;
+            rdfs:domain :EnergyImpactMonthlyConsumption ;
+            rdfs:range xsd:int .
+
+        :Month a owl:DatatypeProperty ;
+            rdfs:domain :EnergyImpactMonthlyConsumption ;
+            rdfs:range xsd:int .
+        
+        :MonthlyConumptionValuePerHour a owl:DatatypeProperty ;
+            rdfs:domain :EnergyImpactMonthlyConsumption ;
+            rdfs:range xsd:double .
+
+        :StartTime a owl:DatatypeProperty ;
+            rdfs:domain :EnergyImpactMonthlyConsumption ;
+            rdfs:range xsd:time .
+
+        :EndTime a owl:DatatypeProperty ;
+            rdfs:domain :EnergyImpactMonthlyConsumption ;
+            rdfs:range xsd:time .
+
+        :StartDate a owl:DatatypeProperty ;
+            rdfs:domain :EnergyImpactMonthlyConsumption ;
+            rdfs:range xsd:dateTime .
+
+        :EndDate a owl:DatatypeProperty ;
+            rdfs:domain :EnergyImpactMonthlyConsumption ;
+            rdfs:range xsd:dateTime .
+
+        :CreatedBy a owl:DatatypeProperty ;
+            rdfs:domain :EnergyImpactMonthlyConsumption ;
+            rdfs:range xsd:string .
+
+        :UpdatedBy a owl:DatatypeProperty ;
+            rdfs:domain :EnergyImpactMonthlyConsumption ;
+            rdfs:range xsd:string .
+
+        :IsActive a owl:DatatypeProperty ;
+            rdfs:domain :EnergyImpactMonthlyConsumption ;
+            rdfs:range xsd:boolean .
+
+        :CreatedDate a owl:DatatypeProperty ;
+            rdfs:domain :EnergyImpactMonthlyConsumption ;
+            rdfs:range xsd:dateTime .
+
+        :UpdatedDate a owl:DatatypeProperty ;
+            rdfs:domain :EnergyImpactMonthlyConsumption ;
+            rdfs:range xsd:dateTime .
+
+    # Relation
+        
+        :hasCommodity a owl:ObjectProperty ; # need to be checked
+            rdfs:domain :EnergyImpactMonthlyConsumption ;
+            rdfs:range :Commodity . # need to be declared
+
+        :hasUnit a owl:ObjectProperty ;  # need to be checked
+            rdfs:domain :EnergyImpactMonthlyConsumption ;
+            rdfs:range xsd:Units . # need to be declared
+
+        :hasEnergyImpact a owl:ObjectProperty ; 
+            rdfs:domain :EnergyImpactMonthlyConsumption ;
+            rdfs:range :EnergyImpact . 
+
+###############################  EnergyImpactOATConsumption  ###############################
+    # Class
+        :EnergyImpactOATConsumption a owl:Class ;
+            rdfs:label "EnergyImpactOATConsumption"@en ;
+            skos:definition ""@en .
+    # Property
+        
+        :MinOATRangeStartValue a owl:DatatypeProperty ;
+            rdfs:domain :EnergyImpactOATConsumption ;
+            rdfs:range xsd:double .
+
+        :MinOATRangeEndValue a owl:DatatypeProperty ;
+            rdfs:domain :EnergyImpactOATConsumption ;
+            rdfs:range xsd:double .
+        
+        :MinConsumptionValuePerHour a owl:DatatypeProperty ;
+            rdfs:domain :EnergyImpactOATConsumption ;
+            rdfs:range xsd:double .
+
+        :MaxOatRangeStartValue a owl:DatatypeProperty ;
+            rdfs:domain :EnergyImpactOATConsumption ;
+            rdfs:range xsd:double .
+
+        :MaxOatRangeEndValue a owl:DatatypeProperty ;
+            rdfs:domain :EnergyImpactOATConsumption ;
+            rdfs:range xsd:double .
+
+        :MaxConsumptionValuePerHour a owl:DatatypeProperty ;
+            rdfs:domain :EnergyImpactOATConsumption ;
+            rdfs:range xsd:double .
+
+        :CreatedBy a owl:DatatypeProperty ;
+            rdfs:domain :EnergyImpactOATConsumption ;
+            rdfs:range xsd:string .
+
+        :UpdatedBy a owl:DatatypeProperty ;
+            rdfs:domain :EnergyImpactOATConsumption ;
+            rdfs:range xsd:string .
+
+        :IsActive a owl:DatatypeProperty ;
+            rdfs:domain :EnergyImpactOATConsumption ;
+            rdfs:range xsd:boolean .
+
+        :CreatedDate a owl:DatatypeProperty ;
+            rdfs:domain :EnergyImpactOATConsumption ;
+            rdfs:range xsd:dateTime .
+
+        :UpdatedDate a owl:DatatypeProperty ;
+            rdfs:domain :EnergyImpactOATConsumption ;
+            rdfs:range xsd:dateTime .
+
+    # Relation
+        
+        :hasCommodity a owl:ObjectProperty ; # need to be checked
+            rdfs:domain :EnergyImpactOATConsumption ;
+            rdfs:range :Commodity . # need to be declared
+
+        :hasUnit a owl:ObjectProperty ;  # need to be checked
+            rdfs:domain :EnergyImpactOATConsumption ;
+            rdfs:range :Units . # need to be declared
+
+        :hasEnergyImpact a owl:ObjectProperty ;  # need to be checked
+            rdfs:domain :EnergyImpactOATConsumption ;
+            rdfs:range :EnergyImpact . 
+
+###############################  EnergyImpactScalingFactor  ###############################
+    # Class
+        :EnergyImpactScalingFactor a owl:Class ;
+            rdfs:label "EnergyImpactScalingFactor"@en ;
+            skos:definition ""@en .
+    # Property
+        
+        :ApplyToImpact a owl:DatatypeProperty ;
+            rdfs:domain :EnergyImpactScalingFactor ;
+            rdfs:range xsd:boolean .
+
+        :ScalingVariableLogic a owl:DatatypeProperty ;
+            rdfs:domain :EnergyImpactScalingFactor ;
+            rdfs:range xsd:string . # need to be checked
+        
+        :ScalingVariableRangeFrom a owl:DatatypeProperty ;
+            rdfs:domain :EnergyImpactScalingFactor ;
+            rdfs:range xsd:boolean .
+
+        :ScalingVariableRangeTo a owl:DatatypeProperty ;
+            rdfs:domain :EnergyImpactScalingFactor ;
+            rdfs:range xsd:boolean .
+
+        :ImpactScalingFactorFrom a owl:DatatypeProperty ;
+            rdfs:domain :EnergyImpactScalingFactor ;
+            rdfs:range xsd:boolean .
+
+        :ImpactScalingFactorTo a owl:DatatypeProperty ;
+            rdfs:domain :EnergyImpactScalingFactor ;
+            rdfs:range xsd:boolean .
+
+        :CreatedBy a owl:DatatypeProperty ;
+            rdfs:domain :EnergyImpactScalingFactor ;
+            rdfs:range xsd:string .
+
+        :UpdatedBy a owl:DatatypeProperty ;
+            rdfs:domain :EnergyImpactScalingFactor ;
+            rdfs:range xsd:string .
+
+        :IsActive a owl:DatatypeProperty ;
+            rdfs:domain :EnergyImpactScalingFactor ;
+            rdfs:range xsd:boolean .
+
+        :CreatedDate a owl:DatatypeProperty ;
+            rdfs:domain :EnergyImpactScalingFactor ;
+            rdfs:range xsd:dateTime .
+
+        :UpdatedDate a owl:DatatypeProperty ;
+            rdfs:domain :EnergyImpactScalingFactor ;
+            rdfs:range xsd:dateTime .
+
+    # Relation
+        
+        :hasCommodity a owl:ObjectProperty ; # need to be checked
+            rdfs:domain :EnergyImpactScalingFactor ;
+            rdfs:range :Commodity . # need to be declared
+
+        :hasEnergyImpact a owl:ObjectProperty ; 
+            rdfs:domain :EnergyImpactScalingFactor ;
+            rdfs:range :EnergyImpact .
+
+###############################  EnergyImpactCalcDetails  ###############################
+    # Class
+        :EnergyImpactCalcDetails a owl:Class ;
+            rdfs:label "EnergyImpactCalcDetails"@en ;
+            skos:definition ""@en .
+    # Property
+        
+        :Duration a owl:DatatypeProperty ;
+            rdfs:domain :EnergyImpactCalcDetails ;
+            rdfs:range xsd:double .
+
+        :FaultName a owl:DatatypeProperty ;
+            rdfs:domain :EnergyImpactCalcDetails ;
+            rdfs:range xsd:string . 
+        
+        :FaultAssetMappingId a owl:DatatypeProperty ;
+            rdfs:domain :EnergyImpactCalcDetails ;
+            rdfs:range xsd:string . # need to be checked
+
+        :IsFault a owl:DatatypeProperty ;
+            rdfs:domain :EnergyImpactCalcDetails ;
+            rdfs:range xsd:boolean .
+
+        :OccuranceTime a owl:DatatypeProperty ;
+            rdfs:domain :EnergyImpactCalcDetails ;
+            rdfs:range xsd:dateTime .
+
+        :RuleID a owl:DatatypeProperty ;
+            rdfs:domain :EnergyImpactCalcDetails ;
+            rdfs:range xsd:int . # need to be checked
+
+        :ToTimestamp a owl:DatatypeProperty ;
+            rdfs:domain :EnergyImpactCalcDetails ;
+            rdfs:range xsd:dateTime .
+
+        :insertionTimestamp a owl:DatatypeProperty ;
+            rdfs:domain :EnergyImpactCalcDetails ;
+            rdfs:range xsd:dateTime .
+
+        :AvgOATCalculate a owl:DatatypeProperty ;
+            rdfs:domain :EnergyImpactCalcDetails ;
+            rdfs:range xsd:double .
+
+        :ConsumptionPerHour a owl:DatatypeProperty ;
+            rdfs:domain :EnergyImpactCalcDetails ;
+            rdfs:range xsd:double .
+
+        :Rate a owl:DatatypeProperty ;
+            rdfs:domain :EnergyImpactCalcDetails ;
+            rdfs:range xsd:double .
+
+        :ScalingApplicable a owl:DatatypeProperty ;
+            rdfs:domain :EnergyImpactCalcDetails ;
+            rdfs:range xsd:boolean .
+
+        :PointAValue a owl:DatatypeProperty ;
+            rdfs:domain :EnergyImpactCalcDetails ;
+            rdfs:range xsd:double .
+
+        :PointBValue a owl:DatatypeProperty ;
+            rdfs:domain :EnergyImpactCalcDetails ;
+            rdfs:range xsd:double .
+
+        :ScalingVariablelogiccalculationvalue a owl:DatatypeProperty ;
+            rdfs:domain :EnergyImpactCalcDetails ;
+            rdfs:range xsd:double .
+
+        :ScalingVariable a owl:DatatypeProperty ;
+            rdfs:domain :EnergyImpactCalcDetails ;
+            rdfs:range xsd:double .
+
+        :ScalingFactorCalcFormula a owl:DatatypeProperty ;
+            rdfs:domain :EnergyImpactCalcDetails ;
+            rdfs:range xsd:string .
+
+        :CreatedBy a owl:DatatypeProperty ;
+            rdfs:domain :EnergyImpactCalcDetails ;
+            rdfs:range xsd:string .
+
+        :UpdatedBy a owl:DatatypeProperty ;
+            rdfs:domain :EnergyImpactCalcDetails ;
+            rdfs:range xsd:string .
+
+        :IsActive a owl:DatatypeProperty ;
+            rdfs:domain :EnergyImpactCalcDetails ;
+            rdfs:range xsd:boolean .
+
+        :CreatedDate a owl:DatatypeProperty ;
+            rdfs:domain :EnergyImpactCalcDetails ;
+            rdfs:range xsd:dateTime .
+
+        :UpdatedDate a owl:DatatypeProperty ;
+            rdfs:domain :EnergyImpactCalcDetails ;
+            rdfs:range xsd:dateTime .    
+
+    # Relation
+           
+        :hasCommodity a owl:ObjectProperty ; # need to be checked
+            rdfs:domain :EnergyImpactCalcDetails ;
+            rdfs:range :Commodity . # need to be declared
+
+        :hasEnergyImpact a owl:ObjectProperty ; 
+            rdfs:domain :EnergyImpactCalcDetails ;
+            rdfs:range :EnergyImpact .
+
+        :hasEquipment a owl:ObjectProperty ; # need to be checked
+            rdfs:domain :EnergyImpactCalcDetails ;
+            rdfs:range :Equipment .
+
 ####################################################################################
 
