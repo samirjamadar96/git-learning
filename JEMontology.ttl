@@ -336,9 +336,7 @@
 
     # Relation
         #
-           
-
-
+        
 ###############################  EnergyImpact  ###############################
     # Class
         :EnergyImpact a owl:Class ;
@@ -825,6 +823,7 @@
         :isMeter a owl:DatatypeProperty ;
             rdfs:domain xsd:anyURI ; # need to be checked
             rdfs:range xsd:boolean . # need to be declared
+
 
 ####################################################################################
 
