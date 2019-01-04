@@ -248,7 +248,7 @@
 
         :Duration a owl:DatatypeProperty ; 
             rdfs:domain :EquipmentFaults ;
-            rdfs:range xsd:dateTime .
+            rdfs:range xsd:double .
 
     # Relation
         
@@ -702,6 +702,129 @@
         :hasEquipment a owl:ObjectProperty ; # need to be checked
             rdfs:domain :EnergyImpactCalcDetails ;
             rdfs:range :Equipment .
+
+###############################  EnergyRuleType  ###############################
+    # Class
+        :EnergyRuleType a owl:Class ;
+            rdfs:label "EnergyRuleType"@en ;
+            skos:definition ""@en .
+    # Property
+        
+        :RuleType a owl:DatatypeProperty ;
+            rdfs:domain :EnergyRuleType ;
+            rdfs:range xsd:string .    
+
+    # Relation  
+        #
+
+###############################  EnergyRules  ###############################
+    # Class
+        :EnergyRules a owl:Class ;
+            rdfs:label "EnergyRules"@en ;
+            skos:definition ""@en .
+    # Property
+        #    
+
+    # Relation  
+        
+        :hasEnergyRuleType a owl:ObjectProperty ;
+            rdfs:domain :EnergyRules ;
+            rdfs:range :EnergyRuleType .
+
+
+###############################  EnergyRulePriorities  ###############################
+    # Class
+        :EnergyRulePriorities a owl:Class ;
+            rdfs:label "EnergyRulePriorities"@en ;
+            skos:definition ""@en .
+    # Property
+        
+        :Priority a owl:DatatypeProperty ;
+            rdfs:domain :EnergyRulePriorities ;
+            rdfs:range xsd:string .    
+
+    # Relation  
+        #
+###############################  EnergyRuleDetails  ###############################
+    # Class
+        :EnergyRuleDetails a owl:Class ;
+            rdfs:label "EnergyRuleDetails"@en ;
+            skos:definition ""@en .
+    # Property
+        :RuleRunFreq a owl:DatatypeProperty ;
+            rdfs:domain :EnergyRuleDetails ;
+            rdfs:range xsd:string .
+
+        :Attribute a owl:DatatypeProperty ;
+            rdfs:domain :EnergyRuleDetails ;
+            rdfs:range xsd:string .
+
+        :RuleName a owl:DatatypeProperty ;
+            rdfs:domain :EnergyRuleDetails ;
+            rdfs:range xsd:string .    
+
+        :RuleDesc a owl:DatatypeProperty ;
+            rdfs:domain :EnergyRuleDetails ;
+            rdfs:range xsd:string .    
+
+        :Tolerance a owl:DatatypeProperty ;
+            rdfs:domain :EnergyRuleDetails ;
+            rdfs:range xsd:string .    
+
+        :Commodity a owl:DatatypeProperty ;
+            rdfs:domain :EnergyRuleDetails ;
+            rdfs:range xsd:string .    
+
+    # Relation  
+        :hasEnergyRuleType a owl:ObjectProperty ;
+            rdfs:domain :EnergyRuleDetails ;
+            rdfs:range :EnergyRuleType .
+
+        :hasEnergyRule a owl:ObjectProperty ;
+            rdfs:domain :EnergyRuleDetails ;
+            rdfs:range :EnergyRules .
+
+        :hasEnergyRulePriority a owl:ObjectProperty ;
+            rdfs:domain :EnergyRuleDetails ;
+            rdfs:range :EnergyRulePriorities .
+
+        :hasPointRole a owl:ObjectProperty ;
+            rdfs:domain :EnergyRuleDetails ;
+            rdfs:range :PointRole . # need to be declared
+###############################  EnergyMappedReason  ###############################
+    # Class
+        #
+    # Property
+        #
+    # Relation  
+        :hasMappedReason a owl:ObjectProperty ;
+            rdfs:domain :EnergyRuleDetails ;
+            rdfs:range :MstReason . # need to be declared
+
+###############################  EnergyRuleAttributeMapping  ###############################
+    # Class
+        #
+    # Property
+        #
+    # Relation  
+        :hasPointRole a owl:ObjectProperty ;
+            rdfs:domain :EnergyRules ;
+            rdfs:range :PointRole . # need to be declared
+
+
+###############################  EnergyMappedMeter_Space  ###############################
+    # Class
+        #
+    # Property
+        #
+    # Relation  
+        :hasSystem a owl:ObjectProperty ;
+            rdfs:domain :EnergyRuleDetails ;
+            rdfs:range :System . # need to be declared
+
+        :isMeter a owl:DatatypeProperty ;
+            rdfs:domain xsd:anyURI ; # need to be checked
+            rdfs:range xsd:boolean . # need to be declared
 
 ####################################################################################
 
