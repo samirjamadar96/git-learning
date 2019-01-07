@@ -825,5 +825,199 @@
             rdfs:range xsd:boolean . # need to be declared
 
 
+###############################  AfterHourZone  ###############################
+    # Class
+        :AfterHourZone a owl:Class ;
+            rdfs:label "AfterHourZone"@en ;
+            skos:definition ""@en .
+    # Property
+        :CreatedOn a owl:DatatypeProperty ;
+            rdfs:domain :AfterHourZone ;
+            rdfs:range xsd:dateTime .
+
+    # Relation  
+        :hasSpace a owl:ObjectProperty ; # need to be checked
+            rdfs:domain :AfterHourZone ;
+            rdfs:range :Space . # need to be declared
+
+        :hasTenant a owl:ObjectProperty ;# need to be checked
+            rdfs:domain :AfterHourZone ; 
+            rdfs:range xsd:anyURI . # need to be declared
+
+        :createdBy a owl:ObjectProperty ;
+            rdfs:domain :AfterHourZone ;
+            rdfs:range xsd:anyURI . # need to be checked
+
+###############################  AfterHourSwitchRate  ###############################
+    # Class
+        :AfterHourSwitchRate a owl:Class ;
+            rdfs:label "AfterHourSwitchRate"@en ;
+            skos:definition ""@en .
+    # Property
+        :EffectiveDate a owl:DatatypeProperty ;
+            rdfs:domain :AfterHourSwitchRate ;
+            rdfs:range xsd:dateTime .
+
+        :AppliedRate a owl:DatatypeProperty ;
+            rdfs:domain :AfterHourSwitchRate ;
+            rdfs:range xsd:int .
+
+    # Relation  
+        :hasAfterHourZone a owl:ObjectProperty ; 
+            rdfs:domain :AfterHourSwitchRate ;
+            rdfs:range :AfterHourZone . 
+
+###############################  AfterHourCommandType  ###############################
+    # Class
+        :AfterHourCommandType a owl:Class ;
+            rdfs:label "AfterHourCommandType"@en ;
+            skos:definition ""@en .
+    # Property
+        :CommandType a owl:DatatypeProperty ;
+            rdfs:domain :AfterHourCommandType ;
+            rdfs:range xsd:string .
+
+    # Relation  
+        #
+
+###############################  AfterHourCommandStatus  ###############################
+    # Class
+        :AfterHourCommandStatus a owl:Class ;
+            rdfs:label "AfterHourCommandStatus"@en ;
+            skos:definition ""@en .
+    # Property
+        :Status a owl:DatatypeProperty ;
+            rdfs:domain :AfterHourCommandStatus ;
+            rdfs:range xsd:string .
+
+    # Relation  
+        #
+        
+###############################  AfterHourCommand  ###############################
+    # Class
+        :AfterHourCommand a owl:Class ;
+            rdfs:label "AfterHourCommand"@en ;
+            skos:definition ""@en .
+    # Property
+        :StartDate a owl:DatatypeProperty ;
+            rdfs:domain :AfterHourCommand ;
+            rdfs:range xsd:dateTime .
+
+        :EndDate a owl:DatatypeProperty ;
+            rdfs:domain :AfterHourCommand ;
+            rdfs:range xsd:dateTime .
+
+        :Remarks a owl:DatatypeProperty ;
+            rdfs:domain :AfterHourCommand ;
+            rdfs:range xsd:string .
+
+        :RequestedOn a owl:DatatypeProperty ;
+            rdfs:domain :AfterHourCommand ;
+            rdfs:range xsd:dateTime .
+        
+    # Relation 
+        :hasAfterHourZone a owl:ObjectProperty ; 
+            rdfs:domain :AfterHourCommand ;
+            rdfs:range :AfterHourZone .
+        
+        :requestedBy a owl:ObjectProperty ;
+            rdfs:domain :AfterHourCommand ;
+            rdfs:range xsd:anyURI . # need to be checked
+        
+        :hasStatus a owl:ObjectProperty ;
+            rdfs:domain :AfterHourCommand ;
+            rdfs:range xsd:anyURI . # need to be checked
+        
+        :hasAfterHourCommandType a owl:ObjectProperty ;
+            rdfs:domain :AfterHourCommand ;
+            rdfs:range :AfterHourCommandType . 
+        
+###############################  AfterHourZonePointMapping  ###############################
+    # Class
+        #
+    # Property
+        #
+        
+    # Relation 
+        
+        :hasCommandPoint a owl:ObjectProperty ;
+            rdfs:domain :AfterHourZone ;
+            rdfs:range :anyURI . # need to be checked
+        
+        :hasStatusPoint a owl:ObjectProperty ;
+            rdfs:domain :AfterHourZone ;
+            rdfs:range xsd:anyURI . # need to be checked
+        
+###############################  AfterHourZoneUserMapping  ###############################
+    # Class
+        #
+    # Property
+        #
+        
+    # Relation 
+        
+        :hasUser a owl:ObjectProperty ;
+            rdfs:domain :AfterHourZone ;
+            rdfs:range xsd:anyURI . # need to be checked
+
+###############################  AfterHourCommandDetails  ###############################
+    # Class
+        :AfterHourCommandDetails a owl:Class ;
+            rdfs:label "AfterHourCommandDetails"@en ;
+            skos:definition ""@en .
+    # Property
+        :Day a owl:DatatypeProperty ;
+            rdfs:domain :AfterHourCommandDetails ;
+            rdfs:range xsd:string .
+        
+        :StartTime a owl:DatatypeProperty ;
+            rdfs:domain :AfterHourCommandDetails ;
+            rdfs:range xsd:dateTime .
+        
+        :EndTime a owl:DatatypeProperty ;
+            rdfs:domain :AfterHourCommandDetails ;
+            rdfs:range xsd:dateTime .
+        
+        :ActualStartTime a owl:DatatypeProperty ;
+            rdfs:domain :AfterHourCommandDetails ;
+            rdfs:range xsd:dateTime .
+        
+        :ActualEndTime a owl:DatatypeProperty ;
+            rdfs:domain :AfterHourCommandDetails ;
+            rdfs:range xsd:dateTime .
+        
+    # Relation 
+        
+        :hasAfterHourCommand a owl:ObjectProperty ;
+            rdfs:domain :AfterHourCommandDetails ;
+            rdfs:range :AfterHourCommand . 
+
+            
+
+###############################  AfterHourCommandAudit  ###############################
+    # Class
+        :AfterHourCommandAudit a owl:Class ;
+            rdfs:label "AfterHourCommandAudit"@en ;
+            skos:definition ""@en .
+    # Property
+        
+        :ActualStartTime a owl:DatatypeProperty ;
+            rdfs:domain :AfterHourCommandAudit ;
+            rdfs:range xsd:dateTime .
+        
+        :ActualEndTime a owl:DatatypeProperty ;
+            rdfs:domain :AfterHourCommandAudit ;
+            rdfs:range xsd:dateTime .
+        
+    # Relation 
+        
+        :hasAfterHourCommand a owl:ObjectProperty ;
+            rdfs:domain :AfterHourCommandDetails ;
+            rdfs:range :AfterHourCommand . 
+
+            
+
+
+            
 ####################################################################################
 
