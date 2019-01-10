@@ -199,7 +199,7 @@
     # Relation
         :hasParent a owl:ObjectProperty ;
             rdfs:domain :Equipment ; 
-            rdfs:range xsd:anyURI .#:Parent 
+            rdfs:range xsd:anyURI .#Parent 
         
         :hasParent_Level a owl:ObjectProperty  ;
             rdfs:domain :Equipment ;
@@ -222,7 +222,7 @@
     # Property
         :Value a owl:DatatypeProperty ; 
             rdfs:domain :Equipment ;
-            rdfs:range xsd:double .
+            rdfs:range xsd:float .
 
     # Relation
         
@@ -234,9 +234,9 @@
             rdfs:domain :Equipment ;
             rdfs:range :Facility . 
 
-        :hasEquipmentTemplate a owl:ObjectProperty ; #need to be checked
+        :hasTemplate a owl:ObjectProperty ; 
             rdfs:domain :Equipment ;
-            rdfs:range :EquipmentTemplate . 
+            rdfs:range xsd:anyURI . #EquipmentTemplate
 
 
 
@@ -260,7 +260,7 @@
 
         :Duration a owl:DatatypeProperty ; 
             rdfs:domain :EquipmentFaults ;
-            rdfs:range xsd:double .
+            rdfs:range xsd:float .
 
     # Relation
         
@@ -291,8 +291,7 @@
     # Property
         #
 
-    # Relation
-        
+    # Relation 
         :hasSpecification a owl:ObjectProperty ; 
             rdfs:domain :Equipment ;
             rdfs:range xsd:anyURI . #F
@@ -330,12 +329,10 @@
         #
     # Property
         #
-    # Relation
-        
-        :hasMappedMeter a owl:ObjectProperty ; # need to be checked
+    # Relation      
+        :hasMappedMeter a owl:ObjectProperty ; 
             rdfs:domain :Equipment ;
-            rdfs:range :Meter . # need to be declared
-            
+            rdfs:range xsd:anyURI . #F
 
 ###############################  EquipmentConsumption  ###############################
     # Class
@@ -362,13 +359,17 @@
             skos:definition ""@en .
     # Property
         
+        :EnergyImpactName a owl:DatatypeProperty ;
+            rdfs:domain :EnergyImpact ;
+            rdfs:range xsd:string .
+
         :FuelConsumptionUnitPrice a owl:DatatypeProperty ;
             rdfs:domain :EnergyImpact ;
-            rdfs:range xsd:double .
+            rdfs:range xsd:float .
 
         :ElectricalConsumptionUnitPrice a owl:DatatypeProperty ;
             rdfs:domain :EnergyImpact ;
-            rdfs:range xsd:double .
+            rdfs:range xsd:float .
         
         :CreatedBy a owl:DatatypeProperty ;
             rdfs:domain :EnergyImpact ;
@@ -393,28 +394,28 @@
     # Relation
         :hasOrganization a owl:ObjectProperty ; 
             rdfs:domain :EnergyImpact ;
-            rdfs:range :Organization . # need to be declared
+            rdfs:range :Organization .
 
         :hasEquipment a owl:ObjectProperty ; 
             rdfs:domain :EnergyImpact ;
             rdfs:range :Equipment .
 
-        :BuildingID a owl:ObjectProperty ; 
+        :hasBuilding a owl:ObjectProperty ; 
             rdfs:domain :EnergyImpact ;
-            rdfs:range :Building . # need to be declared
+            rdfs:range :Building . 
 
-        :hasRule a owl:ObjectProperty ; # need to be checked
+        :hasRule a owl:ObjectProperty ; 
             rdfs:domain :EnergyImpact ;
-            rdfs:range xsd:anyURI . # need to be declared
+            rdfs:range xsd:anyURI . 
 
         :hasUnit a owl:ObjectProperty ; 
             rdfs:domain :EnergyImpact ;
-            rdfs:range :Units . # need to be declared
+            rdfs:range :Units . 
 
         :hasEnergyImpactType a owl:ObjectProperty ; 
             rdfs:domain :EnergyImpact ;
-            rdfs:range :MstEnergyImpactType . # need to be declared
-            
+            rdfs:range :MstEnergyImpactType .
+
 ###############################  EnergyImpactMonthlyConsumption  ###############################
     # Class
         :EnergyImpactMonthlyConsumption a owl:Class ;
@@ -432,7 +433,7 @@
         
         :MonthlyConumptionValuePerHour a owl:DatatypeProperty ;
             rdfs:domain :EnergyImpactMonthlyConsumption ;
-            rdfs:range xsd:double .
+            rdfs:range xsd:float .
 
         :StartTime a owl:DatatypeProperty ;
             rdfs:domain :EnergyImpactMonthlyConsumption ;
@@ -472,13 +473,13 @@
 
     # Relation
         
-        :hasCommodity a owl:ObjectProperty ; # need to be checked
+        :hasCommodity a owl:ObjectProperty ; 
             rdfs:domain :EnergyImpactMonthlyConsumption ;
-            rdfs:range :Commodity . # need to be declared
+            rdfs:range :Commodity . 
 
-        :hasUnit a owl:ObjectProperty ;  # need to be checked
+        :hasUnit a owl:ObjectProperty ;
             rdfs:domain :EnergyImpactMonthlyConsumption ;
-            rdfs:range xsd:Units . # need to be declared
+            rdfs:range :Units . 
 
         :hasEnergyImpact a owl:ObjectProperty ; 
             rdfs:domain :EnergyImpactMonthlyConsumption ;
@@ -489,31 +490,30 @@
         :EnergyImpactOATConsumption a owl:Class ;
             rdfs:label "EnergyImpactOATConsumption"@en ;
             skos:definition ""@en .
-    # Property
-        
+    # Property        
         :MinOATRangeStartValue a owl:DatatypeProperty ;
             rdfs:domain :EnergyImpactOATConsumption ;
-            rdfs:range xsd:double .
+            rdfs:range xsd:float .
 
         :MinOATRangeEndValue a owl:DatatypeProperty ;
             rdfs:domain :EnergyImpactOATConsumption ;
-            rdfs:range xsd:double .
+            rdfs:range xsd:float .
         
         :MinConsumptionValuePerHour a owl:DatatypeProperty ;
             rdfs:domain :EnergyImpactOATConsumption ;
-            rdfs:range xsd:double .
+            rdfs:range xsd:float .
 
         :MaxOatRangeStartValue a owl:DatatypeProperty ;
             rdfs:domain :EnergyImpactOATConsumption ;
-            rdfs:range xsd:double .
+            rdfs:range xsd:float .
 
         :MaxOatRangeEndValue a owl:DatatypeProperty ;
             rdfs:domain :EnergyImpactOATConsumption ;
-            rdfs:range xsd:double .
+            rdfs:range xsd:float .
 
         :MaxConsumptionValuePerHour a owl:DatatypeProperty ;
             rdfs:domain :EnergyImpactOATConsumption ;
-            rdfs:range xsd:double .
+            rdfs:range xsd:float .
 
         :CreatedBy a owl:DatatypeProperty ;
             rdfs:domain :EnergyImpactOATConsumption ;
@@ -537,15 +537,15 @@
 
     # Relation
         
-        :hasCommodity a owl:ObjectProperty ; # need to be checked
+        :hasCommodity a owl:ObjectProperty ; 
             rdfs:domain :EnergyImpactOATConsumption ;
-            rdfs:range :Commodity . # need to be declared
+            rdfs:range :Commodity . 
 
-        :hasUnit a owl:ObjectProperty ;  # need to be checked
+        :hasUnit a owl:ObjectProperty ;  
             rdfs:domain :EnergyImpactOATConsumption ;
-            rdfs:range :Units . # need to be declared
+            rdfs:range :Units . 
 
-        :hasEnergyImpact a owl:ObjectProperty ;  # need to be checked
+        :hasEnergyImpact a owl:ObjectProperty ;  
             rdfs:domain :EnergyImpactOATConsumption ;
             rdfs:range :EnergyImpact . 
 
@@ -562,23 +562,23 @@
 
         :ScalingVariableLogic a owl:DatatypeProperty ;
             rdfs:domain :EnergyImpactScalingFactor ;
-            rdfs:range xsd:string . # need to be checked
+            rdfs:range xsd:string .
         
         :ScalingVariableRangeFrom a owl:DatatypeProperty ;
             rdfs:domain :EnergyImpactScalingFactor ;
-            rdfs:range xsd:boolean .
+            rdfs:range xsd:float .
 
         :ScalingVariableRangeTo a owl:DatatypeProperty ;
             rdfs:domain :EnergyImpactScalingFactor ;
-            rdfs:range xsd:boolean .
+            rdfs:range xsd:float .
 
         :ImpactScalingFactorFrom a owl:DatatypeProperty ;
             rdfs:domain :EnergyImpactScalingFactor ;
-            rdfs:range xsd:boolean .
+            rdfs:range xsd:float .
 
         :ImpactScalingFactorTo a owl:DatatypeProperty ;
             rdfs:domain :EnergyImpactScalingFactor ;
-            rdfs:range xsd:boolean .
+            rdfs:range xsd:float .
 
         :CreatedBy a owl:DatatypeProperty ;
             rdfs:domain :EnergyImpactScalingFactor ;
@@ -602,9 +602,9 @@
 
     # Relation
         
-        :hasCommodity a owl:ObjectProperty ; # need to be checked
+        :hasCommodity a owl:ObjectProperty ; 
             rdfs:domain :EnergyImpactScalingFactor ;
-            rdfs:range :Commodity . # need to be declared
+            rdfs:range :Commodity . 
 
         :hasEnergyImpact a owl:ObjectProperty ; 
             rdfs:domain :EnergyImpactScalingFactor ;
@@ -615,11 +615,10 @@
         :EnergyImpactCalcDetails a owl:Class ;
             rdfs:label "EnergyImpactCalcDetails"@en ;
             skos:definition ""@en .
-    # Property
-        
+    # Property        
         :Duration a owl:DatatypeProperty ;
             rdfs:domain :EnergyImpactCalcDetails ;
-            rdfs:range xsd:double .
+            rdfs:range xsd:float .
 
         :FaultName a owl:DatatypeProperty ;
             rdfs:domain :EnergyImpactCalcDetails ;
@@ -637,10 +636,6 @@
             rdfs:domain :EnergyImpactCalcDetails ;
             rdfs:range xsd:dateTime .
 
-        :RuleID a owl:DatatypeProperty ;
-            rdfs:domain :EnergyImpactCalcDetails ;
-            rdfs:range xsd:int . # need to be checked
-
         :ToTimestamp a owl:DatatypeProperty ;
             rdfs:domain :EnergyImpactCalcDetails ;
             rdfs:range xsd:dateTime .
@@ -651,15 +646,15 @@
 
         :AvgOATCalculate a owl:DatatypeProperty ;
             rdfs:domain :EnergyImpactCalcDetails ;
-            rdfs:range xsd:double .
+            rdfs:range xsd:float .
 
         :ConsumptionPerHour a owl:DatatypeProperty ;
             rdfs:domain :EnergyImpactCalcDetails ;
-            rdfs:range xsd:double .
+            rdfs:range xsd:float .
 
         :Rate a owl:DatatypeProperty ;
             rdfs:domain :EnergyImpactCalcDetails ;
-            rdfs:range xsd:double .
+            rdfs:range xsd:float .
 
         :ScalingApplicable a owl:DatatypeProperty ;
             rdfs:domain :EnergyImpactCalcDetails ;
@@ -667,19 +662,19 @@
 
         :PointAValue a owl:DatatypeProperty ;
             rdfs:domain :EnergyImpactCalcDetails ;
-            rdfs:range xsd:double .
+            rdfs:range xsd:float .
 
         :PointBValue a owl:DatatypeProperty ;
             rdfs:domain :EnergyImpactCalcDetails ;
-            rdfs:range xsd:double .
+            rdfs:range xsd:float .
 
         :ScalingVariablelogiccalculationvalue a owl:DatatypeProperty ;
             rdfs:domain :EnergyImpactCalcDetails ;
-            rdfs:range xsd:double .
+            rdfs:range xsd:float .
 
         :ScalingVariable a owl:DatatypeProperty ;
             rdfs:domain :EnergyImpactCalcDetails ;
-            rdfs:range xsd:double .
+            rdfs:range xsd:float .
 
         :ScalingFactorCalcFormula a owl:DatatypeProperty ;
             rdfs:domain :EnergyImpactCalcDetails ;
@@ -705,19 +700,22 @@
             rdfs:domain :EnergyImpactCalcDetails ;
             rdfs:range xsd:dateTime .    
 
-    # Relation
-           
-        :hasCommodity a owl:ObjectProperty ; # need to be checked
+    # Relation        
+        :hasCommodity a owl:ObjectProperty ; 
             rdfs:domain :EnergyImpactCalcDetails ;
-            rdfs:range :Commodity . # need to be declared
+            rdfs:range :Commodity . 
 
         :hasEnergyImpact a owl:ObjectProperty ; 
             rdfs:domain :EnergyImpactCalcDetails ;
             rdfs:range :EnergyImpact .
 
-        :hasEquipment a owl:ObjectProperty ; # need to be checked
+        :hasEquipment a owl:ObjectProperty ;
             rdfs:domain :EnergyImpactCalcDetails ;
             rdfs:range :Equipment .
+
+        :hasRule a owl:DatatypeProperty ;
+            rdfs:domain :EnergyImpactCalcDetails ;
+            rdfs:range xsd:anyURI . #F
 
 ###############################  EnergyRuleType  ###############################
     # Class
@@ -739,10 +737,12 @@
             rdfs:label "EnergyRules"@en ;
             skos:definition ""@en .
     # Property
-        #    
+        :RuleName a owl:DatatypeProperty ;
+            rdfs:domain :EnergyRules ;
+            rdfs:range xsd:string .    
+    
 
-    # Relation  
-        
+    # Relation          
         :hasEnergyRuleType a owl:ObjectProperty ;
             rdfs:domain :EnergyRules ;
             rdfs:range :EnergyRuleType .
@@ -806,7 +806,8 @@
 
         :hasPointRole a owl:ObjectProperty ;
             rdfs:domain :EnergyRuleDetails ;
-            rdfs:range :PointRole . # need to be declared
+            rdfs:range :PointRole . 
+            
 ###############################  EnergyMappedReason  ###############################
     # Class
         #
@@ -815,7 +816,7 @@
     # Relation  
         :hasMappedReason a owl:ObjectProperty ;
             rdfs:domain :EnergyRuleDetails ;
-            rdfs:range :MstReason . # need to be declared
+            rdfs:range :MstReason . 
 
 ###############################  EnergyRuleAttributeMapping  ###############################
     # Class
@@ -825,7 +826,7 @@
     # Relation  
         :hasPointRole a owl:ObjectProperty ;
             rdfs:domain :EnergyRules ;
-            rdfs:range :PointRole . # need to be declared
+            rdfs:range :PointRole . 
 
 
 ###############################  EnergyMappedMeter_Space  ###############################
@@ -836,11 +837,11 @@
     # Relation  
         :hasSystem a owl:ObjectProperty ;
             rdfs:domain :EnergyRuleDetails ;
-            rdfs:range :System . # need to be declared
+            rdfs:range :System .
 
-        :isMeter a owl:DatatypeProperty ;
-            rdfs:domain xsd:anyURI ; # need to be checked
-            rdfs:range xsd:boolean . # need to be declared
+        :hasSystem_isMeter a owl:DatatypeProperty ;
+            rdfs:domain :EnergyRuleDetails ;
+            rdfs:range xsd:boolean .
 
 
 ###############################  AfterHourZone  ###############################
@@ -853,32 +854,35 @@
             rdfs:domain :AfterHourZone ;
             rdfs:range xsd:dateTime .
 
-    # Relation  
-        :hasSpace a owl:ObjectProperty ; # need to be checked
+        :AfterHourZoneName a owl:DatatypeProperty ;
             rdfs:domain :AfterHourZone ;
-            rdfs:range :Space . # need to be declared
+            rdfs:range xsd:string .
 
-        :hasTenant a owl:ObjectProperty ;# need to be checked
+    # Relation  
+        :hasSpace a owl:ObjectProperty ; 
+            rdfs:domain :AfterHourZone ;
+            rdfs:range :Space . 
+
+        :hasTenant a owl:ObjectProperty ;
             rdfs:domain :AfterHourZone ; 
-            rdfs:range xsd:anyURI . # need to be declared
+            rdfs:range xsd:anyURI . 
 
         :createdBy a owl:ObjectProperty ;
             rdfs:domain :AfterHourZone ;
-            rdfs:range xsd:anyURI . # need to be checked
-
+            rdfs:range xsd:anyURI . 
 ###############################  AfterHourSwitchRate  ###############################
     # Class
         :AfterHourSwitchRate a owl:Class ;
             rdfs:label "AfterHourSwitchRate"@en ;
             skos:definition ""@en .
     # Property
-        :EffectiveDate a owl:DatatypeProperty ;
+       :EffectiveDate a owl:DatatypeProperty ;
             rdfs:domain :AfterHourSwitchRate ;
             rdfs:range xsd:dateTime .
 
         :AppliedRate a owl:DatatypeProperty ;
             rdfs:domain :AfterHourSwitchRate ;
-            rdfs:range xsd:int .
+            rdfs:range xsd:float .
 
     # Relation  
         :hasAfterHourZone a owl:ObjectProperty ; 
@@ -940,11 +944,11 @@
         
         :requestedBy a owl:ObjectProperty ;
             rdfs:domain :AfterHourCommand ;
-            rdfs:range xsd:anyURI . # need to be checked
+            rdfs:range xsd:anyURI . 
         
         :hasStatus a owl:ObjectProperty ;
             rdfs:domain :AfterHourCommand ;
-            rdfs:range xsd:anyURI . # need to be checked
+            rdfs:range :AfterHourCommandStatus . 
         
         :hasAfterHourCommandType a owl:ObjectProperty ;
             rdfs:domain :AfterHourCommand ;
@@ -960,11 +964,11 @@
         
         :hasCommandPoint a owl:ObjectProperty ;
             rdfs:domain :AfterHourZone ;
-            rdfs:range xsd:anyURI . # need to be checked
+            rdfs:range xsd:anyURI . 
         
         :hasStatusPoint a owl:ObjectProperty ;
             rdfs:domain :AfterHourZone ;
-            rdfs:range xsd:anyURI . # need to be checked
+            rdfs:range xsd:anyURI . 
         
 ###############################  AfterHourZoneUserMapping  ###############################
     # Class
@@ -976,7 +980,7 @@
         
         :hasUser a owl:ObjectProperty ;
             rdfs:domain :AfterHourZone ;
-            rdfs:range xsd:anyURI . # need to be checked
+            rdfs:range xsd:anyURI . 
 
 ###############################  AfterHourCommandDetails  ###############################
     # Class
@@ -1033,11 +1037,6 @@
             rdfs:domain :AfterHourCommandDetails ;
             rdfs:range :AfterHourCommand . 
 
-            
-
-
-            
-
 ###############################  MstReason  ###############################
     # Class
         :MstReason a owl:Class ;
@@ -1050,15 +1049,15 @@
             rdfs:range xsd:string .
         
     # Relation 
-    #
+        #
 
 ###############################  MstScopeOfWork  ###############################
     # Class
         :MstScopeOfWork a owl:Class ;
             rdfs:label "MstScopeOfWork"@en ;
             skos:definition ""@en .
+
     # Property
-        
         :ScopeOfWorkText a owl:DatatypeProperty ;
             rdfs:domain :MstScopeOfWork ;
             rdfs:range xsd:string .
@@ -1147,6 +1146,11 @@
             skos:definition ""@en .
     # Property
         
+        :EnergyImpactTypeName a owl:DatatypeProperty ; 
+            rdfs:domain :MstEnergyImpactType ;
+            rdfs:range xsd:string .
+        
+        
         :CreatedBy a owl:DatatypeProperty ; 
             rdfs:domain :MstEnergyImpactType ;
             rdfs:range xsd:string .
@@ -1177,6 +1181,11 @@
             skos:definition ""@en .
     # Property
         
+        :ScalingFactorOperandPropertyName a owl:DatatypeProperty ; 
+            rdfs:domain :MstScalingFactorOperandProperty ;
+            rdfs:range xsd:string .
+        
+        
         :CreatedBy a owl:DatatypeProperty ; 
             rdfs:domain :MstScalingFactorOperandProperty ;
             rdfs:range xsd:string .
@@ -1206,7 +1215,11 @@
             rdfs:label "MstScalingFactorOperandType"@en ;
             skos:definition ""@en .
     # Property
-        
+
+        :ScalingFactorOperandTypeName a owl:DatatypeProperty ; 
+            rdfs:domain :MstScalingFactorOperandType ;
+            rdfs:range xsd:string .
+                
         :CreatedBy a owl:DatatypeProperty ; 
             rdfs:domain :MstScalingFactorOperandType ;
             rdfs:range xsd:string .
@@ -1236,16 +1249,18 @@
             rdfs:label "MstUBMCity"@en ;
             skos:definition ""@en .
     # Property
-        #
+        :CityName a owl:DatatypeProperty ; 
+            rdfs:domain :MstUBMCity ;
+            rdfs:range xsd:string .
 
     # Relation 
         :isUnderState a owl:ObjectProperty ; 
             rdfs:domain :MstUBMCity ;
-            rdfs:range :MstUBMState .
+            rdfs:range xsd:anyURI .
 
         :isUnderCountry a owl:ObjectProperty ; 
             rdfs:domain :MstUBMCity ;
-            rdfs:range :MstUBMCountry .
+            rdfs:range xsd:anyURI .
             
 
 ###############################  MstUBMState  ###############################
@@ -1254,21 +1269,26 @@
             rdfs:label "MstUBMState"@en ;
             skos:definition ""@en .
     # Property
-        #
+         :StateName a owl:DatatypeProperty ; 
+            rdfs:domain :MstUBMState ;
+            rdfs:range xsd:string .
 
-    # Relation 
-        
+    # Relation   
         :isUnderCountry a owl:ObjectProperty ; 
             rdfs:domain :MstUBMState ;
-            rdfs:range :MstUBMCountry .
+            rdfs:range xsd:anyURI .
+
 ###############################  MstUBMCountry  ###############################
     # Class
         :MstUBMCountry a owl:Class ;
             rdfs:label "MstUBMCountry"@en ;
             skos:definition ""@en .
     # Property
+         :CountryName a owl:DatatypeProperty ; 
+            rdfs:domain :MstUBMCountry ;
+            rdfs:range xsd:string .
 
-         :CountryCode a owl:DatatypeProperty ; 
+        :CountryCode a owl:DatatypeProperty ; 
             rdfs:domain :MstUBMCountry ;
             rdfs:range xsd:string .
 
@@ -1360,7 +1380,7 @@
 
         :Remarks a owl:DatatypeProperty ; 
             rdfs:domain :AlarmMasterSettings ;
-            rdfs:range xsd:int .
+            rdfs:range xsd:string .
             
     # Relation 
         :hasSpace a owl:ObjectProperty ;
@@ -1418,6 +1438,10 @@
             rdfs:label "AssetGroup"@en ;
             skos:definition ""@en .
     # Property
+        :AssetGroupName a owl:DatatypeProperty ;
+            rdfs:domain :AssetGroup ;
+            rdfs:range xsd:string .
+
         :Description a owl:DatatypeProperty ;
             rdfs:domain :AssetGroup ;
             rdfs:range xsd:string .
@@ -1431,6 +1455,10 @@
             rdfs:label "AssetType"@en ;
             skos:definition ""@en .
     # Property
+        :AssetTypeName a owl:DatatypeProperty ;
+            rdfs:domain :AssetType ;
+            rdfs:range xsd:string . 
+        
         :KPIValues a owl:DatatypeProperty ;
             rdfs:domain :AssetType ;
             rdfs:range xsd:string .
@@ -1471,7 +1499,7 @@
 
         :Val a owl:DatatypeProperty ;
             rdfs:domain :BoilerSystemAggregatedRunHours_Temp ;
-            rdfs:range xsd:double .
+            rdfs:range xsd:float .
 
     # Relation 
         #
@@ -1488,16 +1516,20 @@
 
         :Val a owl:DatatypeProperty ;
             rdfs:domain :ChillerSystemAggregatedRunHours_Temp ;
-            rdfs:range xsd:double .
+            rdfs:range xsd:float .
 
     # Relation 
         #
-###############################  Commodity  ###############################
+###############################  Commodity  ############################### 
     # Class
         :Commodity a owl:Class ;
             rdfs:label "Commodity"@en ;
             skos:definition ""@en .
     # Property
+        :Name a owl:DatatypeProperty ;
+            rdfs:domain :Commodity ;
+            rdfs:range xsd:string .
+
         :ShortName a owl:DatatypeProperty ;
             rdfs:domain :Commodity ;
             rdfs:range xsd:string .
@@ -1536,7 +1568,7 @@
 
         :Value a owl:DatatypeProperty ;
             rdfs:domain :CommodityCost ;
-            rdfs:range xsd:double .
+            rdfs:range xsd:float .
 
         :Unit a owl:DatatypeProperty ;
             rdfs:domain :CommodityCost ;
@@ -1599,7 +1631,7 @@
 
         :Enable a owl:DatatypeProperty ;
             rdfs:domain :ConfigurationTemplates ;
-            rdfs:range xsd:string .
+            rdfs:range xsd:boolean .
 
     # Relation 
         :hasEquipmentType a owl:ObjectProperty ;
@@ -1634,15 +1666,15 @@
 
         :MinValue a owl:DatatypeProperty ;
             rdfs:domain :ConfigurationTemplates ;
-            rdfs:range xsd:double .
+            rdfs:range xsd:float .
 
         :MaxValue a owl:DatatypeProperty ;
             rdfs:domain :ConfigurationTemplates ;
-            rdfs:range xsd:double .
+            rdfs:range xsd:float .
 
         :ReadFrequency a owl:DatatypeProperty ;
             rdfs:domain :ConfigurationTemplates ;
-            rdfs:range xsd:double .
+            rdfs:range xsd:string .
 
     # Relation 
         :hasPointRole a owl:ObjectProperty ;
@@ -1659,7 +1691,7 @@
 
         :hasTemplate a owl:ObjectProperty ;
             rdfs:domain :ConfigurationTemplateAttributes ;
-            rdfs:range xsd:anyURI .
+            rdfs:range :ConfigurationTemplates .
 
 
 
@@ -1671,7 +1703,7 @@
     # Property
         :Version a owl:DatatypeProperty ;
             rdfs:domain :DataCollector ;
-            rdfs:range xsd:double .
+            rdfs:range xsd:string .
 
         :UpdatedDate a owl:DatatypeProperty ;
             rdfs:domain :DataCollector ;
@@ -1680,7 +1712,7 @@
     # Relation 
         :hasSystem a owl:ObjectProperty ;
             rdfs:domain :DataCollector ;
-            rdfs:range :System .
+            rdfs:range xsd:anyURI .
 
 
 ###############################  DataSource  ###############################
@@ -1689,6 +1721,10 @@
             rdfs:label "DataSource"@en ;
             skos:definition ""@en .
     # Property
+        :Name a owl:DatatypeProperty ;
+            rdfs:domain :DataSource ;
+            rdfs:range xsd:string .
+        
         :ConfigurationDiscoveryFilter a owl:DatatypeProperty ;
             rdfs:domain :DataSource ;
             rdfs:range xsd:string .
@@ -1728,7 +1764,7 @@
     # Relation 
         :hasOrganization a owl:ObjectProperty ;
             rdfs:domain :DataSource ;
-            rdfs:range :Organization .
+            rdfs:range xsd:anyURI .
 
         
 ###############################  Diagnostic  ###############################
@@ -1743,7 +1779,7 @@
         
         :GeneratedBy a owl:DatatypeProperty ;
             rdfs:domain :Diagnostic ;
-            rdfs:range xsd:string .
+            rdfs:range xsd:boolean .
 
         :FinalStatus a owl:DatatypeProperty ;
             rdfs:domain :Diagnostic ;
@@ -1752,7 +1788,7 @@
     # Relation 
         :hasRule a owl:ObjectProperty ;
             rdfs:domain :Diagnostic ;
-            rdfs:range xsd:anyURI .
+            rdfs:range :Rules .
 
         :hasFault a owl:ObjectProperty ;
             rdfs:domain :Diagnostic ;
@@ -1770,7 +1806,7 @@
         
         :ConversionFactor a owl:DatatypeProperty ;
             rdfs:domain :EmissionFactor ;
-            rdfs:range xsd:double .
+            rdfs:range xsd:float .
 
         :EmissionUnit a owl:DatatypeProperty ;
             rdfs:domain :EmissionFactor ;
@@ -1805,7 +1841,9 @@
             skos:definition ""@en .
 
     # Property
-        #
+        :Name a owl:DatatypeProperty ;
+            rdfs:domain :GlobalPoints ;
+            rdfs:range xsd:string . 
 
     # Relation 
         :hasOrganization a owl:ObjectProperty ;
@@ -1818,7 +1856,7 @@
 
         :hasPoint a owl:ObjectProperty ;
             rdfs:domain :GlobalPoints ;
-            rdfs:range :Point . 
+            rdfs:range :Points . 
 
 
 ###############################  FaultAssetMapping  ###############################
@@ -1843,7 +1881,7 @@
 
     # Relation 
         :hasDiagnosis a owl:ObjectProperty ;
-            rdfs:domain xsd:anyURI ;
+            rdfs:domain :Rules ;
             rdfs:range :Rules . 
 
 ###############################  MeterCategory  ###############################
@@ -1853,7 +1891,9 @@
             skos:definition ""@en .
 
     # Property
-        #
+        :Name a owl:DatatypeProperty ;
+            rdfs:domain :MeterCategory: ;
+            rdfs:range xsd:string . 
 
     # Relation 
         #
@@ -1870,7 +1910,7 @@
             rdfs:domain :System ;
             rdfs:range :MeterCategory . 
 
-        :EffectiveDate a owl:ObjectProperty ;
+        :hasMeterCategory_EffectiveDate a owl:ObjectProperty ;
             rdfs:domain :hasMeterCategory ;
             rdfs:range xsd:dateTime . 
 
@@ -1882,7 +1922,10 @@
             skos:definition ""@en .
 
     # Property
-        #
+        :Name a owl:DatatypeProperty ;
+            rdfs:domain :MeterSystem: ;
+            rdfs:range xsd:string . 
+
 
     # Relation 
         #
@@ -1894,7 +1937,9 @@
             skos:definition ""@en .
 
     # Property
-        #
+        :CalculationTypeName a owl:DatatypeProperty ;
+            rdfs:domain :MeterCategory: ;
+            rdfs:range xsd:string . 
 
     # Relation 
         #
@@ -1924,7 +1969,7 @@
 
         :hasEnergyRule a owl:ObjectProperty ;
             rdfs:domain :PointRole ;
-            rdfs:range xsd:anyURI . 
+            rdfs:range :EnergyRules . 
 
 ###############################  PointRoleSeriesTypeMapping  ###############################
     # Class
@@ -1947,10 +1992,11 @@
             skos:definition ""@en .
 
     # Property
-        
+        :PointTypeName a owl:DatatypeProperty ;
+            rdfs:domain :PointType ;
+            rdfs:range xsd:string .
     # Relation 
-        
-
+  
 ###############################  Points  ###############################
     # Class
         :Points a owl:Class ;
@@ -1958,17 +2004,22 @@
             skos:definition ""@en .
 
     # Property
+
+        :Name a owl:DatatypeProperty ;
+            rdfs:domain :Points ;
+            rdfs:range xsd:string .
+
         :PointRoleName a owl:DatatypeProperty ;
             rdfs:domain :Points ;
             rdfs:range xsd:string .
 
         :MinValue a owl:DatatypeProperty ;
             rdfs:domain :Points ;
-            rdfs:range xsd:double .
+            rdfs:range xsd:float .
 
         :MaxValue a owl:DatatypeProperty ;
             rdfs:domain :Points ;
-            rdfs:range xsd:double .
+            rdfs:range xsd:float .
 
         :CommodityName a owl:DatatypeProperty ;
             rdfs:domain :Points ;
@@ -1980,7 +2031,7 @@
 
         :ResetValue a owl:DatatypeProperty ;
             rdfs:domain :Points ;
-            rdfs:range xsd:double .
+            rdfs:range xsd:float .
 
         :Source a owl:DatatypeProperty ;
             rdfs:domain :Points ;
@@ -1991,10 +2042,6 @@
             rdfs:range xsd:string .
 
         :NativeUomType a owl:DatatypeProperty ;
-            rdfs:domain :Points ;
-            rdfs:range xsd:string .
-
-        :TemplateParameter a owl:DatatypeProperty ;
             rdfs:domain :Points ;
             rdfs:range xsd:string .
 
@@ -2016,7 +2063,7 @@
 
         :CuttOff a owl:DatatypeProperty ;
             rdfs:domain :Points ;
-            rdfs:range xsd:double .
+            rdfs:range xsd:float .
 
         :VirtualRuleExpression a owl:DatatypeProperty ;
             rdfs:domain :Points ;
@@ -2087,6 +2134,10 @@
             rdfs:domain :Points ;
             rdfs:range :DataSource . 
 
+        :hasTemplateParameter a owl:DatatypeProperty ;
+            rdfs:domain :Points ;
+            rdfs:range :TemplateParameters .
+
         :hasUnit a owl:ObjectProperty ;
             rdfs:domain :Points ;
             rdfs:range :Units. 
@@ -2102,7 +2153,6 @@
         :hasAttribute a owl:ObjectProperty ;
             rdfs:domain :Points ;
             rdfs:range xsd:anyURI . 
-
         
 ###############################  PointsV2  ###############################
     # Class
@@ -2117,11 +2167,11 @@
 
         :MinValue a owl:DatatypeProperty ;
             rdfs:domain :PointsV2 ;
-            rdfs:range xsd:double .
+            rdfs:range xsd:float .
 
         :MaxValue a owl:DatatypeProperty ;
             rdfs:domain :PointsV2 ;
-            rdfs:range xsd:double .
+            rdfs:range xsd:float .
 
         :CommodityName a owl:DatatypeProperty ;
             rdfs:domain :PointsV2 ;
@@ -2133,7 +2183,7 @@
 
         :ResetValue a owl:DatatypeProperty ;
             rdfs:domain :PointsV2 ;
-            rdfs:range xsd:double .
+            rdfs:range xsd:float .
 
         :Source a owl:DatatypeProperty ;
             rdfs:domain :PointsV2 ;
@@ -2169,7 +2219,7 @@
 
         :CuttOff a owl:DatatypeProperty ;
             rdfs:domain :PointsV2 ;
-            rdfs:range xsd:double .
+            rdfs:range xsd:float .
 
         :VirtualRuleExpression a owl:DatatypeProperty ;
             rdfs:domain :PointsV2 ;
@@ -2257,6 +2307,10 @@
             skos:definition ""@en .
 
     # Property
+        :Name a owl:DatatypeProperty ;
+            rdfs:domain :SubSystems ;
+            rdfs:range xsd:string .
+
         :SystemTypeName a owl:DatatypeProperty ;
             rdfs:domain :SubSystems ;
             rdfs:range xsd:string .
@@ -2289,7 +2343,9 @@
             skos:definition ""@en .
 
     # Property
-        #
+        :Name a owl:DatatypeProperty ;
+            rdfs:domain :SystemParameters ;
+            rdfs:range xsd:string .
 
     # Relation 
         :hasCommodity a owl:ObjectProperty ;
@@ -2311,7 +2367,10 @@
             skos:definition ""@en .
 
     # Property
-        #
+        :SystemTypeName a owl:DatatypeProperty ;
+            rdfs:domain :SystemParameters ;
+            rdfs:range xsd:string .
+
 
     # Relation 
         #
@@ -2323,6 +2382,10 @@
             skos:definition ""@en .
 
     # Property
+        :Name a owl:DatatypeProperty ;
+            rdfs:domain :System ;
+            rdfs:range xsd:string .
+
         :SystemTypeName a owl:DatatypeProperty ;
             rdfs:domain :System ;
             rdfs:range xsd:string .
@@ -2417,10 +2480,6 @@
             rdfs:domain :System ;
             rdfs:range :Wing . 
 
-        :hasWing a owl:ObjectProperty ;
-            rdfs:domain :System ;
-            rdfs:range :Wing .
-        
         :hasRoom a owl:ObjectProperty ;
             rdfs:domain :System ;
             rdfs:range :Room .
@@ -2435,7 +2494,7 @@
 
         :hasPortfolio a owl:ObjectProperty ;
             rdfs:domain :System ;
-            rdfs:range xsd:anyURI .
+            rdfs:range :Organization .
 
         :hasMeterCategory a owl:ObjectProperty ;
             rdfs:domain :System ;
@@ -2467,11 +2526,11 @@
 
         :MinValue a owl:DatatypeProperty ;
             rdfs:domain :TempPoints ;
-            rdfs:range xsd:double .
+            rdfs:range xsd:float .
 
         :MaxValue a owl:DatatypeProperty ;
             rdfs:domain :TempPoints ;
-            rdfs:range xsd:double .
+            rdfs:range xsd:float .
 
         :CommodityName a owl:DatatypeProperty ;
             rdfs:domain :TempPoints ;
@@ -2483,7 +2542,7 @@
 
         :ResetValue a owl:DatatypeProperty ;
             rdfs:domain :TempPoints ;
-            rdfs:range xsd:double .
+            rdfs:range xsd:float .
 
         :Source a owl:DatatypeProperty ;
             rdfs:domain :TempPoints ;
@@ -2519,7 +2578,7 @@
 
         :CuttOff a owl:DatatypeProperty ;
             rdfs:domain :TempPoints ;
-            rdfs:range xsd:double .
+            rdfs:range xsd:float .
 
         :VirtualRuleExpression a owl:DatatypeProperty ;
             rdfs:domain :TempPoints ;
@@ -2719,6 +2778,10 @@
             rdfs:domain :MstKioskIntroductionText ;
             rdfs:range :Space .
 
+        :hasKioskIntroductionText a owl:ObjectProperty ; 
+            rdfs:domain :MstKioskIntroductionText ;
+            rdfs:range :MstKioskIntroductionText .
+
 
 ###############################  OperationType  ###############################
     # Class
@@ -2791,7 +2854,10 @@
             skos:definition ""@en .
 
     # Property
-        #
+        :Name a owl:DatatypeProperty ;
+            rdfs:domain :Quantity ;
+            rdfs:range xsd:string .
+
 
     # Relation 
         #
@@ -2804,14 +2870,6 @@
 
     # Property
         :RateTypeName a owl:DatatypeProperty ;
-            rdfs:domain :RateType ;
-            rdfs:range xsd:string .
-
-        :CreatedBy a owl:DatatypeProperty ;
-            rdfs:domain :RateType ;
-            rdfs:range xsd:string .
-
-        :ModifiedBy a owl:DatatypeProperty ;
             rdfs:domain :RateType ;
             rdfs:range xsd:string .
 
@@ -2828,7 +2886,14 @@
             rdfs:range xsd:dateTime .
 
     # Relation 
-        #
+        :createdBy a owl:DatatypeProperty ;
+            rdfs:domain :RateType ;
+            rdfs:range xsd:anyURI .
+
+        :ModifiedBy a owl:DatatypeProperty ;
+            rdfs:domain :RateType ;
+            rdfs:range xsd:anyURI .
+
         
 ###############################  ReadFrequency  ###############################
     # Class
@@ -2890,7 +2955,9 @@
             rdfs:domain :RuleAttribute ;
             rdfs:range xsd:string .
 
-        
+        :Parameter a owl:DatatypeProperty ;
+            rdfs:domain :RuleAttribute ;
+            rdfs:range xsd:string .
 
     # Relation 
         :hasRule a owl:ObjectProperty ;
@@ -2899,7 +2966,7 @@
 
         :hasAssetAttribute a owl:ObjectProperty ;
             rdfs:domain :RuleAttribute ;
-            rdfs:range :AssetAttributes .  
+            rdfs:range xsd:anyURI .  
 
         :hasRuleAttributeType a owl:ObjectProperty ;
             rdfs:domain :RuleAttribute ;
@@ -2963,15 +3030,16 @@
             skos:definition ""@en .
 
     # Property
+        
+        :RuleName a owl:DatatypeProperty ;
+            rdfs:domain :Rules ;
+            rdfs:range xsd:string .
+
         :RuleString a owl:DatatypeProperty ;
             rdfs:domain :Rules ;
             rdfs:range xsd:string .
 
         :SnoozeTime a owl:DatatypeProperty ;
-            rdfs:domain :Rules ;
-            rdfs:range xsd:string .
-
-        :RuleString a owl:DatatypeProperty ;
             rdfs:domain :Rules ;
             rdfs:range xsd:string .
 
@@ -2981,7 +3049,7 @@
 
         :Percentage a owl:DatatypeProperty ;
             rdfs:domain :Rules ;
-            rdfs:range xsd:double .
+            rdfs:range xsd:float .
 
         :NoOfSamples a owl:DatatypeProperty ;
             rdfs:domain :Rules ;
@@ -3013,11 +3081,11 @@
 
         :VersionNumber a owl:DatatypeProperty ;
             rdfs:domain :Rules ;
-            rdfs:range xsd:double .
+            rdfs:range xsd:float .
 
         :CurrentVersion a owl:DatatypeProperty ;
             rdfs:domain :Rules ;
-            rdfs:range xsd:double .
+            rdfs:range xsd:float .
 
         :RuleDescriptionForReport a owl:DatatypeProperty ;
             rdfs:domain :Rules ;
@@ -3030,7 +3098,7 @@
     # Relation 
         :hasRuleType a owl:ObjectProperty ;
             rdfs:domain :Rules ;
-            rdfs:range :RuleType .
+            rdfs:range :MstRuleType .
 
         :hasSeverity a owl:ObjectProperty ;
             rdfs:domain :Rules ;
@@ -3135,8 +3203,7 @@
 
         :UpdatedDate a owl:DatatypeProperty ;
             rdfs:domain :ScalingFactorFormulaComponent ;
-            rdfs:range xsd:dateTime .
-        
+            rdfs:range xsd:dateTime .       
 
     # Relation 
         :hasEnergyImpactScalingFactor a owl:ObjectProperty ;
@@ -3185,7 +3252,7 @@
     # Relation 
         :hasTariffSlotMapping a owl:ObjectProperty ; # need to be checked
             rdfs:domain :TariffSlotPeriodDuration ;
-            rdfs:range xsd:anyURI .
+            rdfs:range :TariffSlotPeriodMapping .
 
         :hasTariffDaytype a owl:ObjectProperty ;
             rdfs:domain :TariffSlotPeriodDuration ;
@@ -3199,7 +3266,10 @@
             skos:definition ""@en .
 
     # Property
-        #
+        :Name a owl:DatatypeProperty ;
+            rdfs:domain :TariffSlotPeriodMaster ;
+            rdfs:range xsd:string .
+
 
     # Relation 
         #
@@ -3220,25 +3290,28 @@
         
 ###############################  TariffSlotPeriodMapping    ###############################
     # Class
-        #
+        :TariffSlotPeriodMapping a owl:Class ;
+            rdfs:label "TariffSlotPeriodMapping"@en ;
+            skos:definition ""@en .
 
     # Property
-        #
+        :RatePerConsumption a owl:DatatypeProperty ;
+            rdfs:domain :TariffSlotPeriodMapping ;
+            rdfs:range xsd:double .
+
+        :RatePerDemand a owl:DatatypeProperty ;
+            rdfs:domain :TariffSlotPeriodMapping ;
+            rdfs:range xsd:double .
+
         
     # Relation 
-        :hasSpace a owl:ObjectProperty ;
-            rdfs:domain :Space ;
-            rdfs:range xsd:anyURI .
+        :hasTariffSlotPeriod a owl:ObjectProperty ;
+            rdfs:domain :TariffSlotPeriodMapping ;
+            rdfs:range :TariffSlotPeriodMaster .
         
-        :SpaceType a owl:DatatypeProperty ;
+        :hasMappedID a owl:DatatypeProperty ;
             rdfs:domain xsd:anyURI ;
-            rdfs:range xsd:string .
-
-        :CheckStatus a owl:DatatypeProperty ;
-            rdfs:domain xsd:anyURI ;
-            rdfs:range xsd:string .
-
-
+            rdfs:range :CustomTariffRuleMapping .
 
 ###############################  TeamUserMapping  ###############################
     # Class
@@ -3255,7 +3328,6 @@
         :hasUser a owl:ObjectProperty ;
             rdfs:domain :MaintenanceTeam ;
             rdfs:range xsd:anyURI .
-        
 ###############################  Template    ###############################
     # Class
         :Template a owl:Class ;
@@ -3263,12 +3335,14 @@
             skos:definition ""@en .
 
     # Property
-        #
+        :Name a owl:DatatypeProperty ;
+            rdfs:domain :Template ;
+            rdfs:range xsd:string .
 
     # Relation 
         :hasSystemType a owl:ObjectProperty ;
             rdfs:domain :Template ;
-            rdfs:range :SystemType .
+            rdfs:range xsd:anyURI .
         
 
 ###############################  TemplateParameters    ###############################
@@ -3278,7 +3352,9 @@
             skos:definition ""@en .
 
     # Property
-        #
+        :Name a owl:DatatypeProperty ;
+            rdfs:domain :TemplateParameters ;
+            rdfs:range xsd:string .
 
     # Relation 
         :hasTemplate a owl:ObjectProperty ;
@@ -3324,7 +3400,7 @@
     # Property
         :TimePeriod a owl:DatatypeProperty ;
             rdfs:domain :TimePeriodMaster ;
-            rdfs:range xsd:int .
+            rdfs:range xsd:string .
 
         :TimePeriodText a owl:DatatypeProperty ;
             rdfs:domain :TimePeriodMaster ;
@@ -3341,6 +3417,10 @@
             skos:definition ""@en .
 
     # Property
+        :Name a owl:DatatypeProperty ;
+            rdfs:domain :Timeseries ;
+            rdfs:range xsd:string .
+
         :SeriesType a owl:DatatypeProperty ;
             rdfs:domain :Timeseries ;
             rdfs:range xsd:string .
@@ -3384,11 +3464,11 @@
         
         :hasUnit a owl:ObjectProperty ;
             rdfs:domain :Timeseries ;
-            rdfs:range :Units .
+            rdfs:range xsd:anyURI .
         
         :hasPoint a owl:ObjectProperty ;
             rdfs:domain :Timeseries ;
-            rdfs:range :Point .
+            rdfs:range :Points .
         
 
 
@@ -3404,13 +3484,13 @@
             rdfs:domain :Space ;
             rdfs:range xsd:anyURI .
         
-        :SpaceType a owl:DatatypeProperty ;
+        :Users_SpaceType a owl:DatatypeProperty ;
             rdfs:domain xsd:anyURI ;
             rdfs:range xsd:string .
 
-        :CheckStatus a owl:DatatypeProperty ;
+        :Users_CheckStatus a owl:DatatypeProperty ;
             rdfs:domain xsd:anyURI ;
-            rdfs:range xsd:string .
+            rdfs:range xsd:boolean .
 
 
 
@@ -3428,11 +3508,11 @@
     # Relation 
         :hasAssetAttribute a owl:ObjectProperty ;
             rdfs:domain :VirtualPointRuleAttribute ;
-            rdfs:range :AssetAttributess .
+            rdfs:range xsd:anyURI .
         
         :hasPoint a owl:ObjectProperty ;
             rdfs:domain :VirtualPointRuleAttribute ;
-            rdfs:range :Point .
+            rdfs:range xsd:anyURI .
         
 
 
@@ -3478,7 +3558,7 @@
         
         :hasPoint a owl:ObjectProperty ;
             rdfs:domain :Widget ;
-            rdfs:range :Point .
+            rdfs:range xsd:anyURI .
         
 
 
@@ -3557,7 +3637,7 @@
 
         :Area a owl:DatatypeProperty ;
             rdfs:domain :WorkOrders ;
-            rdfs:range xsd:double .
+            rdfs:range xsd:float .
 
         :RequestorName a owl:DatatypeProperty ;
             rdfs:domain :WorkOrders ;
@@ -3585,7 +3665,7 @@
 
         :TimeTaken a owl:DatatypeProperty ;
             rdfs:domain :WorkOrders ;
-            rdfs:range xsd:double .
+            rdfs:range xsd:float .
 
         :WorkOrderRespondDateTime a owl:DatatypeProperty ;
             rdfs:domain :WorkOrders ;
@@ -3593,7 +3673,7 @@
 
         :RespondTimeSpan a owl:DatatypeProperty ;
             rdfs:domain :WorkOrders ;
-            rdfs:range xsd:double .
+            rdfs:range xsd:float .
 
         :ResourceUsed a owl:DatatypeProperty ;
             rdfs:domain :WorkOrders ;
