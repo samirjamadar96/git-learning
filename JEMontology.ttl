@@ -79,7 +79,7 @@
 
         :residedInBuilding a owl:ObjectProperty ;
             rdfs:domain :Equipment ;
-            rdfs:range :Building . #F
+            rdfs:range :Building . 
 
 ###############################  Equipment Template  ###############################
     # Class
@@ -178,7 +178,7 @@
 
         :hasRule a owl:ObjectProperty ;
             rdfs:domain :EquipmentFaultTimeMachineDetails ; 
-            rdfs:range :Rules . #F
+            rdfs:range :Rules . 
 
 
 ###############################  EquipmentSpaceMapping  ###############################
@@ -189,7 +189,7 @@
     # Relation
         :isMappedToSpace a owl:ObjectProperty ;
             rdfs:domain :Equipment ; 
-            rdfs:range :Space . #F
+            rdfs:range :Space . 
 
 ###############################  EquipmentRelationalMapping  ###############################
     # Class
@@ -236,9 +236,7 @@
 
         :hasTemplate a owl:ObjectProperty ; 
             rdfs:domain :Equipment ;
-            rdfs:range xsd:anyURI . #EquipmentTemplate
-
-
+            rdfs:range :EquipmentTemplate .
 
 ###############################  EquipmentFaults  ###############################
     # Class
@@ -270,7 +268,7 @@
 
         :hasFault a owl:ObjectProperty ;
             rdfs:domain :EquipmentFaults ;
-            rdfs:range xsd:anyURI . #F
+            rdfs:range xsd:anyURI . 
             
 ###############################  EquipmentTagDetails  ###############################
     # Class
@@ -294,7 +292,7 @@
     # Relation 
         :hasSpecification a owl:ObjectProperty ; 
             rdfs:domain :Equipment ;
-            rdfs:range xsd:anyURI . #F
+            rdfs:range xsd:anyURI . 
 
         :hasSpecification_SpecificationValue a owl:DatatypeProperty ; 
             rdfs:domain :Equipment ;
@@ -318,11 +316,11 @@
         
         :hasSpecificationCategory a owl:ObjectProperty ; 
             rdfs:domain :EquipmentSpecificationDetailsMaster ;
-            rdfs:range xsd:anyURI . #F 
+            rdfs:range xsd:anyURI .  
 
         :hasSpecificationType a owl:ObjectProperty ; 
             rdfs:domain :EquipmentSpecificationDetailsMaster ;
-            rdfs:range xsd:anyURI . #F
+            rdfs:range xsd:anyURI . 
             
 ###############################  EquipmentMeterMapping  ###############################
     # Class
@@ -332,7 +330,7 @@
     # Relation      
         :hasMappedMeter a owl:ObjectProperty ; 
             rdfs:domain :Equipment ;
-            rdfs:range xsd:anyURI . #F
+            rdfs:range xsd:anyURI . #Empty table
 
 ###############################  EquipmentConsumption  ###############################
     # Class
@@ -406,7 +404,7 @@
 
         :hasRule a owl:ObjectProperty ; 
             rdfs:domain :EnergyImpact ;
-            rdfs:range xsd:anyURI . 
+            rdfs:range :Rules . 
 
         :hasUnit a owl:ObjectProperty ; 
             rdfs:domain :EnergyImpact ;
@@ -715,7 +713,7 @@
 
         :hasRule a owl:DatatypeProperty ;
             rdfs:domain :EnergyImpactCalcDetails ;
-            rdfs:range xsd:anyURI . #F
+            rdfs:range :Rules .
 
 ###############################  EnergyRuleType  ###############################
     # Class
@@ -865,11 +863,11 @@
 
         :hasTenant a owl:ObjectProperty ;
             rdfs:domain :AfterHourZone ; 
-            rdfs:range xsd:anyURI . 
+            rdfs:range :TenantDetails . 
 
         :createdBy a owl:ObjectProperty ;
             rdfs:domain :AfterHourZone ;
-            rdfs:range xsd:anyURI . 
+            rdfs:range :Users . 
 ###############################  AfterHourSwitchRate  ###############################
     # Class
         :AfterHourSwitchRate a owl:Class ;
@@ -944,7 +942,7 @@
         
         :requestedBy a owl:ObjectProperty ;
             rdfs:domain :AfterHourCommand ;
-            rdfs:range xsd:anyURI . 
+            rdfs:range :Users . 
         
         :hasStatus a owl:ObjectProperty ;
             rdfs:domain :AfterHourCommand ;
@@ -964,11 +962,11 @@
         
         :hasCommandPoint a owl:ObjectProperty ;
             rdfs:domain :AfterHourZone ;
-            rdfs:range xsd:anyURI . 
+            rdfs:range :Points . 
         
         :hasStatusPoint a owl:ObjectProperty ;
             rdfs:domain :AfterHourZone ;
-            rdfs:range xsd:anyURI . 
+            rdfs:range :Points . 
         
 ###############################  AfterHourZoneUserMapping  ###############################
     # Class
@@ -976,11 +974,10 @@
     # Property
         #
         
-    # Relation 
-        
+    # Relation        
         :hasUser a owl:ObjectProperty ;
             rdfs:domain :AfterHourZone ;
-            rdfs:range xsd:anyURI . 
+            rdfs:range :Users . 
 
 ###############################  AfterHourCommandDetails  ###############################
     # Class
@@ -1485,7 +1482,9 @@
 
 
     # Relation 
-        #
+        :hasAssetGroup a owl:ObjectProperty ;
+            rdfs:domain :AssetType ;
+            rdfs:range :AssetGroup .
 
 ###############################  BoilerSystemAggregatedRunHours_Temp  ###############################
     # Class
@@ -1613,7 +1612,7 @@
         
         :hasLoadType a owl:ObjectProperty ;
             rdfs:domain :Commodity ;
-            rdfs:range xsd:anyURI .
+            rdfs:range :LoadType .
 
 ###############################  ConfigurationTemplates  ###############################
     # Class
@@ -1712,7 +1711,7 @@
     # Relation 
         :hasSystem a owl:ObjectProperty ;
             rdfs:domain :DataCollector ;
-            rdfs:range xsd:anyURI .
+            rdfs:range :System .
 
 
 ###############################  DataSource  ###############################
@@ -1788,7 +1787,7 @@
     # Relation 
         :hasRule a owl:ObjectProperty ;
             rdfs:domain :Diagnostic ;
-            rdfs:range :Rules .
+            rdfs:range xsd:anyURI .
 
         :hasFault a owl:ObjectProperty ;
             rdfs:domain :Diagnostic ;
@@ -1819,7 +1818,7 @@
     # Relation 
         :hasUser a owl:ObjectProperty ;
             rdfs:domain :EmissionFactor ;
-            rdfs:range xsd:anyURI . 
+            rdfs:range :Users . 
 
 
 ###############################  DiagnosticReasonMapping  ###############################
@@ -2890,7 +2889,7 @@
             rdfs:domain :RateType ;
             rdfs:range xsd:anyURI .
 
-        :ModifiedBy a owl:DatatypeProperty ;
+        :modifiedBy a owl:DatatypeProperty ;
             rdfs:domain :RateType ;
             rdfs:range xsd:anyURI .
 
@@ -3227,7 +3226,7 @@
     # Property
         :TariffDayTypeName a owl:DatatypeProperty ;
             rdfs:domain :TariffDayTypeMaster ;
-            rdfs:range xsd:anyURI .
+            rdfs:range xsd:string .
         
     # Relation 
         #
@@ -3250,13 +3249,13 @@
         
 
     # Relation 
-        :hasTariffSlotMapping a owl:ObjectProperty ; # need to be checked
+        :hasTariffSlotMapping a owl:ObjectProperty ; 
             rdfs:domain :TariffSlotPeriodDuration ;
             rdfs:range :TariffSlotPeriodMapping .
 
         :hasTariffDaytype a owl:ObjectProperty ;
             rdfs:domain :TariffSlotPeriodDuration ;
-            rdfs:range xsd:anyURI .
+            rdfs:range :TariffDayTypeMaster .
 
         
 ###############################  TariffSlotPeriodMaster  ###############################
@@ -3323,11 +3322,11 @@
     # Relation 
         :hasRole a owl:ObjectProperty ;
             rdfs:domain :MaintenanceTeam ;
-            rdfs:range xsd:anyURI .
+            rdfs:range :Role .
 
         :hasUser a owl:ObjectProperty ;
             rdfs:domain :MaintenanceTeam ;
-            rdfs:range xsd:anyURI .
+            rdfs:range :Users .
 ###############################  Template    ###############################
     # Class
         :Template a owl:Class ;
@@ -3388,7 +3387,7 @@
     # Relation 
         :hasUser a owl:ObjectProperty ;
             rdfs:domain :Theme ;
-            rdfs:range xsd:anyURI .
+            rdfs:range :Users .
         
 
 ###############################  TimePeriodMaster    ###############################
@@ -3482,7 +3481,7 @@
     # Relation 
         :hasSpace a owl:ObjectProperty ;
             rdfs:domain :Space ;
-            rdfs:range xsd:anyURI .
+            rdfs:range :Users .
         
         :Users_SpaceType a owl:DatatypeProperty ;
             rdfs:domain xsd:anyURI ;
@@ -3555,12 +3554,6 @@
         :hasDashboard a owl:ObjectProperty ;
             rdfs:domain :Widget ;
             rdfs:range :Dashboard .
-        
-        :hasPoint a owl:ObjectProperty ;
-            rdfs:domain :Widget ;
-            rdfs:range xsd:anyURI .
-        
-
 
 ###############################  WorkOrderComments    ###############################
     # Class
@@ -3588,7 +3581,7 @@
         
         :hasUser a owl:ObjectProperty ;
             rdfs:domain :WorkOrderComments ;
-            rdfs:range xsd:anyURI .
+            rdfs:range :Users .
         
 
 
@@ -3698,7 +3691,7 @@
 
         :hasServiceType a owl:ObjectProperty ;
             rdfs:domain :WorkOrders ;
-            rdfs:range :ServiceType .
+            rdfs:range xsd:anyURI .
         
         :hasCategoryType a owl:ObjectProperty ;
             rdfs:domain :WorkOrders ;
@@ -3744,6 +3737,10 @@
             rdfs:domain :WorkOrders ;
             rdfs:range :EquipmentType .
         
+        :hasServiceState a owl:ObjectProperty ;
+            rdfs:domain :WorkOrders ;
+            rdfs:range :ServiceStateMaster .
+        
         :hasMaintenanceTeam a owl:ObjectProperty ;
             rdfs:domain :WorkOrders ;
             rdfs:range :MaintenanceTeam .
@@ -3756,4 +3753,3 @@
             rdfs:domain :WorkOrders ;
             rdfs:range xsd:anyURI .
 
-#####################################################################################
